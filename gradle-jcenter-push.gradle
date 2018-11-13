@@ -16,6 +16,7 @@
 apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.jfrog.bintray'
 apply plugin: 'signing'
+
 version = VERSION_NAME
 group = GROUP
 
@@ -104,16 +105,20 @@ signing {
     sign configurations.archives
 }
 
-bintrayUpload << {
-    def configuration = project.configurations.getByName("archives")//获取名字为archives的configuration
-    def files = configuration.getArtifacts().files.getFiles()//获取artifacts 发布的文件
-    println("archives files length " + files.size())
-    files.each { file ->
-        System.out.println("files " + file.getName())
+task printArchives(dependsOn: 'build') {
+    doFirst {
+        def configuration = project.configurations.getByName("archives")//获取名字为archives的configuration
+        def files = configuration?.getArtifacts()?.files?.getFiles()//获取artifacts 发布的文件
+        System.out.println("archives files length " + files.size())
+        files.each { file ->
+            System.out.println("files " + file.getName() + " " + file.getAbsolutePath())
+        }
     }
 }
 
+
 project.archivesBaseName = POM_ARTIFACT_ID
+
 
 Properties properties = new Properties()
 properties.load(project.rootProject.file('local.properties').newDataInputStream())
