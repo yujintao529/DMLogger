@@ -83,7 +83,7 @@ public class LoggerManager implements LoggerContext {
             return this;
         }
 
-        public LoggerBuilder disableSystemAppders() {
+        public LoggerBuilder disableSystemAppender() {
             useSystemAppenders = false;
             return this;
         }

@@ -8,6 +8,5 @@ public class BaseApplication extends Application {
     public void onCreate() {
         super.onCreate();
         BMLogger.initDefaultLogger(this);
-
     }
 }
