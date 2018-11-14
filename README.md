@@ -96,4 +96,19 @@ dailyFile:
 
 DMLogger除了方便使用外，更重要的是高可定制化，不仅解决网络日志，业务日志等等全都在同一个日志文件中不容易查看问题。而且也可以解决同组开发人员日志混乱等问题。
 
+## License
+<pre>
+Copyright 2018 Orhan Obut
 
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+</pre>
