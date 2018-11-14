@@ -44,7 +44,7 @@ BMLogger.getDefaultLogger().debug/info/warn/error()
 全局appender所有logger共享，可以设定logger跳过全局appender
 
 ```java
-LoggerManager.putAppender(LogcatAppender.defaultLogcatAppender());//设置locate默认appender
+LoggerManager.putAppender(LogcatAppender.defaultLogcatAppender());//设置默认logcatAppender
 //或者自定义LogcatAppender
 LogcatAppender.Builder builder = new LogcatAppender.Builder();
 PrettyFormatStrategy prettyFormatStrategy=new PrettyFormatStrategy();
