@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import java.io.IOException;
 import java.io.Writer;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 class Utils {
@@ -47,7 +48,7 @@ class Utils {
     }
 
     static boolean isSameDay(Date first, Date second) {
-        return first.compareTo(second) == 0;
+        return first.getDay() == second.getDay() && first.getYear() == second.getYear();
     }
 
 

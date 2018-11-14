@@ -32,12 +32,26 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 //自定义一个
                 LogcatAppender.Builder builder = new LogcatAppender.Builder();
-                PrettyFormatStrategy prettyFormatStrategy=new PrettyFormatStrategy();
+                PrettyFormatStrategy prettyFormatStrategy = new PrettyFormatStrategy();
                 prettyFormatStrategy.setMethodCallStack(2);
                 prettyFormatStrategy.setThreadInfo(true);
                 builder.withFormatStrategy(prettyFormatStrategy);
                 Logger logger = LoggerManager.newLoggerBuilder().disableSystemAppender().loggerName("self logger").addAppender(builder.build()).build();
                 logger.debug(MainActivity.class.getSimpleName(), "test logger");
+            }
+        });
+        findViewById(R.id.customizeWithFileLogger).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LoggerManager.LoggerBuilder loggerBuilder = LoggerManager.newLoggerBuilder();
+                loggerBuilder.loggerName("base_logger");
+                loggerBuilder.disableSystemAppender();//跳过系统默认appender
+                DailyFileAppender.Builder builder = new DailyFileAppender.Builder();
+                builder.withFilePath(getApplication().getFilesDir().getAbsolutePath() + "/logs");
+                builder.withFileName("dailylog.txt");
+                loggerBuilder.addAppender(builder.build());
+                Logger logger = loggerBuilder.build();
+                logger.debug(MainActivity.class.getSimpleName(), "我要测试呀");
             }
         });
 
