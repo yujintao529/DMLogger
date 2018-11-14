@@ -98,7 +98,7 @@ DMLogger除了方便使用外，更重要的是高可定制化，不仅解决网
 
 ## License
 <pre>
-Copyright 2018 Orhan Obut
+Copyright 2018 yujintao
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
