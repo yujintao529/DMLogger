@@ -1,5 +1,7 @@
 package com.demon.yu.dmlogger;
 
+import android.util.Log;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -32,6 +34,10 @@ public class TTCCFormatStrategy implements FormatStrategy {
         }
         stringBuilder.append(" - ").append("[").append(getTag(messageEntry.tag)).append("]").append(" ");
         stringBuilder.append(messageEntry.content);
+        if (messageEntry.throwable != null) {
+            stringBuilder.append("\n");
+            stringBuilder.append(Log.getStackTraceString(messageEntry.throwable));
+        }
         logAdapter.log(messageEntry.level, getTag(messageEntry.tag), stringBuilder.toString());
     }
 

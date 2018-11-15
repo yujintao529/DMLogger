@@ -52,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
                 loggerBuilder.addAppender(builder.build());
                 Logger logger = loggerBuilder.build();
                 logger.debug(MainActivity.class.getSimpleName(), "我要测试呀");
+                logger.error(MainActivity.class.getSimpleName(),new RuntimeException("测试异常"),"抛出异常");
             }
         });
 
