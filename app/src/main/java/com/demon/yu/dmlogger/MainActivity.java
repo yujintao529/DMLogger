@@ -16,13 +16,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if (BMLogger.getDefaultLogger() == null) {
-                    BMLogger.initDefaultLogger(getApplication());
+                if (DMLogger.getDefaultLogger() == null) {
+                    DMLogger.initDefaultLogger(getApplication());
                 }
-                //尽量直接调用，BMLogger.getDefaultLogger().debug（），如果在包一层堆栈信息会尴尬的～
-                // 堆栈默认打印的 BMLogger.getDefaultLogger().debug的调用处
+                //尽量直接调用，DMLogger.getDefaultLogger().debug（），如果在包一层堆栈信息会尴尬的～
+                // 堆栈默认打印的 DMLogger.getDefaultLogger().debug的调用处
                 for (int i = 0; i < 10; i++) {
-                    BMLogger.getDefaultLogger().debug(MainActivity.class.getSimpleName(), "test" + i);
+                    DMLogger.getDefaultLogger().debug(MainActivity.class.getSimpleName(), "test" + i);
                 }
             }
         });

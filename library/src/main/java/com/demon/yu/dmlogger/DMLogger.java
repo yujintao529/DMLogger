@@ -3,7 +3,7 @@ package com.demon.yu.dmlogger;
 
 import android.app.Application;
 
-public class BMLogger {
+public class DMLogger {
 
     private static Logger defaultLogger;
 
@@ -13,13 +13,13 @@ public class BMLogger {
         FileAppender.Builder builder = new FileAppender.Builder();
         LoggerManager.putAppender(builder.withFilePath(application.getFilesDir().getAbsolutePath() + "/logs").build());
         LoggerManager.LoggerBuilder loggerBuilder = LoggerManager.newLoggerBuilder();
-        loggerBuilder.loggerName("BMLogger");
+        loggerBuilder.loggerName("DMLogger");
         defaultLogger = loggerBuilder.build();
     }
 
     public static Logger getDefaultLogger() {
         if (defaultLogger == null) {
-            throw new BMLoggerExcetion("defaultLogger not initialization");
+            throw new DMLoggerExcetion("defaultLogger not initialization");
         }
         return defaultLogger;
     }

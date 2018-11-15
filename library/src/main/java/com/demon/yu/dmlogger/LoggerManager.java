@@ -96,7 +96,7 @@ public class LoggerManager implements LoggerContext {
 
         public Logger build() {
             if (Utils.isEmpty(this.name)) {
-                throw new BMLoggerExcetion("logger name must not be null,please call loggerName to set name");
+                throw new DMLoggerExcetion("logger name must not be null,please call loggerName to set name");
             }
             LoggerImpl logger = new LoggerImpl(loggerManager, name);
             for (Appender appender : appenders) {

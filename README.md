@@ -23,12 +23,12 @@ public class BaseApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        BMLogger.initDefaultLogger(this);
+        DMLogger.initDefaultLogger(this);
     }
 }
 
 //使用
-BMLogger.getDefaultLogger().debug/info/warn/error()
+DMLogger.getDefaultLogger().debug/info/warn/error()
 ```
 默认logger使用了两个appender，LogcatAppender和FileAppender，其中fileAppender默认的日志文件存储位置为：``/data/data/[package]/files/logs/``下面。
 
